@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_library_books_all,access_library_books_all,model_library_books,,1,0,0,0
+access_library_transaction_all,access_library_transaction_all,model_library_transaction,,1,0,0,0
+
+access_library_books_staff,access_library_books_staff,model_library_books,bay_library.group_library_staff,0,1,1,0
+access_library_books_manager,access_library_books_manager,model_library_books,bay_library.group_library_manager,0,0,0,1
+access_library_transaction_staff,access_library_transaction_staff,model_library_transaction,bay_library.group_library_staff,0,1,1,0
+access_library_transaction_manager,access_library_transaction_manager,model_library_transaction,bay_library.group_library_manager,0,0,0,1

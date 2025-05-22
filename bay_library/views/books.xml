@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <!-- List View -->
+        <record model="ir.ui.view" id="library_books_view_tree">
+            <field name="name">library.books.tree</field>
+            <field name="model">library.books</field>
+            <field name="arch" type="xml">
+                <tree create="1" delete="1">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="total"/>
+                    <field name="total_books"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record model="ir.ui.view" id="library_books_view_form">
+            <field name="name">library.books.form</field>
+            <field name="model">library.books</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="description" />
+                                <field name="total" />
+                                <field name="total_books" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+
+        <!-- Action for Course -->
+        <record id="action_library_books" model="ir.actions.act_window">
+            <field name="name">Library</field>
+            <field name="res_model">library.books</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <!-- List View -->
+        <record model="ir.ui.view" id="library_transaction_view_tree">
+            <field name="name">library.transaction.tree</field>
+            <field name="model">library.transaction</field>
+            <field name="arch" type="xml">
+                <tree create="1" delete="1">
+                    <field name="name"/>
+                    <field name="book_ids"/>
+                    <field name="description"/>
+                    <field name="rent_date"/>
+                    <field name="return_date"/>
+                    <field name="partner_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record model="ir.ui.view" id="library_transaction_view_form">
+            <field name="name">library.transaction.form</field>
+            <field name="model">library.transaction</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_draft" type="object" string="Draft" invisible="state in ('progress','done')"/>
+                        <button name="action_progress" type="object" string="Progress" invisible="state in ('progress','done')"/>
+                        <button name="action_done" type="object" string="Set to Done" invisible="state != 'progress'"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">Transaction</span>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="book_ids"/>
+                                <field name="description"/>
+                                <field name="rent_date"/>
+                                <field name="return_date"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Borrower">
+                                <field name="partner_id"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Search View -->
+        <!-- Action for Course -->
+        <record id="action_library_transaction" model="ir.actions.act_window">
+            <field name="name">Transaction</field>
+            <field name="res_model">library.transaction</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

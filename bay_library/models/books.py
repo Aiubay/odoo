@@ -15,6 +15,8 @@ class LibraryBooks(models.Model):
         comodel_name='library.transaction', 
         inverse_name='book_ids', 
         string='Transactions')
+    
+    testing_field = fields.Char(string='Testing Field')
 
     total_books = fields.Integer(string='Available Books', compute='_compute_available_books', store=True)
 
